@@ -1,6 +1,6 @@
 # Frontend Mentor - Clock app
 
-![Design preview for the Clock app coding challenge](./assets/preview.jpg)
+![Design preview for the Clock app coding challenge](./dist/assets/preview.jpg)
 
 ## The challenge
 
@@ -39,4 +39,4 @@ Users should be able to:
 
 ## Technologies I used
 
-- APIs, Axios, SCSS, BEM, Figma for the design files
+- APIs, SCSS
