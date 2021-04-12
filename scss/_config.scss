@@ -1,0 +1,10 @@
+button {
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: 2px dashed map-get($map: $color, $key: "white");
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}

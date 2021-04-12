@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./dist/assets/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/css/style.css" />
+    <title>Frontend Mentor | Clock app</title>
+  </head>
+  <body>
+    <div class="loader-container">
+      <div class="square-spinner"></div>
+    </div>
+    <div class="main-content">
+      <h1 class="sr-only">Clock app</h1>
+      <div class="background"></div>
+      <main id="top-widgets">
+        <div class="quote-wrapper">
+          <div class="quote-wrapper-random">
+            <q class="quote"></q>
+            <h2 class="author"></h2>
+          </div>
+          <button id="refresh">
+            <!-- <svg
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          >
+            <path
+              d="M7 9h-7v-7h1v5.2c1.853-4.237 6.083-7.2 11-7.2 6.623 0 12 5.377 12 12s-5.377 12-12 12c-6.286 0-11.45-4.844-11.959-11h1.004c.506 5.603 5.221 10 10.955 10 6.071 0 11-4.929 11-11s-4.929-11-11-11c-4.66 0-8.647 2.904-10.249 7h5.249v1z"
+            />
+          </svg> -->
+            <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.188 10.667a.208.208 0 01.147.355l-2.344 2.206a5.826 5.826 0 009.578-2.488l2.387.746A8.322 8.322 0 013.17 14.94l-2.149 2.022a.208.208 0 01-.355-.148v-6.148h6.52zm7.617-7.63L16.978.958a.208.208 0 01.355.146v6.23h-6.498a.208.208 0 01-.147-.356L13 4.765A5.825 5.825 0 003.43 7.26l-2.386-.746a8.32 8.32 0 0113.76-3.477z"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <span class="sr-only">Click the refresh button</span>
+          </button>
+        </div>
+        <div class="currently">
+          <div class="widgets-wrapper">
+            <div class="header">
+              <img src="" alt="" class="header-icon" />
+              <h2 class="header-currently"></h2>
+              <span>, it's currently</span>
+            </div>
+            <div class="currently-time">
+              <div class="currently-time-wrapper">
+                <h2 class="currently-time-wrapper-time-now time-now"></h2>
+                <div class="currently-time-wrapper-standard-time">
+                  <p
+                    class="currently-time-wrapper-standard-time-period period"
+                  ></p>
+                  <p
+                    class="currently-time-wrapper-standard-time-region reg"
+                  ></p>
+                </div>
+              </div>
+              <h3 class="currently-time-location locate">in</h3>
+            </div>
+            <button class="expand">
+              <span class="btn-text">More</span>
+              <img
+                src="./dist/assets/desktop/icon-arrow-up.svg"
+                alt="arrow icon"
+                aria-hidden="true"
+                class="arrow"
+              />
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="details">
+      <ul class="details-content">
+        <li class="details-content-region info zones">
+          <h4>Current timezone</h4>
+          <p id="timezone"></p>
+        </li>
+        <li class="details-content-day info">
+          <h4>Day of the year</h4>
+          <p id="year-day"></p>
+        </li>
+        <li class="details-content-weekday info week">
+          <h4>Day of the week</h4>
+          <p id="week-day"></p>
+        </li>
+        <li class="details-content-weeknumber info week-number">
+          <h4>Week number</h4>
+          <p id="week-number"></p>
+        </li>
+      </ul>
+    </div>
+    <script src="./js/aysnc.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,457 @@
+.loader-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e4f5ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .square-spinner {
+    width: 55px;
+    display: block;
+    background-color: #03a9f4;
+    height: 55px;
+    -webkit-animation: 3s rotate2 ease-in-out infinite;
+    animation: 3s flip ease-in-out infinite;
+  }
+}
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: perspective(50px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+  }
+}
+@keyframes flip {
+  0% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+  }
+}
+.main-content {
+  position: relative;
+  top: 100px;
+  display: none;
+
+  .background {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+  #top-widgets {
+    position: relative;
+    padding: 31.7px 26px 40px;
+    //   padding: 3.17rem 2.6rem 4rem;
+    height: 100%;
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: map-get($map: $width, $key: will);
+    @include med {
+      padding: 80px 131px 64px 64px;
+    }
+    @include lg {
+      margin: 0 auto;
+    }
+    @include min {
+      padding: 56px 0 98px;
+    }
+
+    .quote-wrapper {
+      text-transform: initial;
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      max-width: 573px;
+      display: grid;
+      grid-template-columns: 1fr 26.72px;
+      column-gap: 25.6px;
+
+      @include med {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+      .author {
+        font-weight: 700;
+        padding-top: 0.8rem;
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+
+        @include med {
+          font-size: 18px;
+          line-height: 28px;
+        }
+        @include lg {
+          padding: 13px 0 98px;
+        }
+      }
+      #refresh {
+        height: 1.8rem;
+        border: none;
+        cursor: pointer;
+        background: none;
+
+        @include med {
+          margin-top: 0.3rem;
+        }
+        @include lg {
+          margin-top: 1rem;
+        }
+        svg {
+          fill: map-get($map: $color, $key: 'white');
+          outline: none;
+          transition: transform 0.15s linear;
+          opacity: 0.5;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .currently {
+      text-transform: uppercase;
+
+      @include lg {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+      }
+      .header {
+        display: flex;
+
+        &-icon {
+          // width: 40px;
+          // height: 40px;
+          // background: red;
+          padding-right: 1.6rem;
+          animation: rotation 6s infinite linear;
+
+          @include med {
+            height: 24px;
+          }
+        }
+        &-currently {
+          font-size: 15px;
+          line-height: 2.5rem;
+          letter-spacing: 0.3rem;
+          font-weight: 400;
+
+          @include med {
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: 3.6px;
+          }
+
+          @include lg {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 4px;
+          }
+        }
+        span {
+          font-size: 15px;
+          line-height: 2.5rem;
+          letter-spacing: 0.3rem;
+          font-weight: 400;
+          display: none;
+
+          @media screen and (min-width: 500px) {
+            display: block;
+          }
+
+          @include med {
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: 3.6px;
+          }
+
+          @include lg {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 4px;
+          }
+        }
+      }
+      &-time {
+        padding-bottom: 40px;
+
+        @include lg {
+          padding-bottom: 0;
+        }
+
+        &-wrapper {
+          display: flex;
+
+          @include med {
+            column-gap: 2rem;
+          }
+
+          &-time-now {
+            font-size: 10rem;
+            line-height: 10rem;
+            letter-spacing: -2.5px;
+            padding: 16px 16px 16px 0;
+            // width: 40px;
+            // height: 40px;
+            // background: red;
+
+            @include med {
+              font-size: 175px;
+              line-height: 175px;
+              letter-spacing: -4.38px;
+            }
+            @include lg {
+              font-size: 20rem;
+              line-height: 100%;
+              letter-spacing: -5px;
+            }
+          }
+          &-standard-time {
+            align-self: center;
+            font-size: 15px;
+            padding-top: 37px;
+            font-weight: 300;
+            @include med {
+              font-size: 32px;
+              line-height: 18px;
+              padding-top: 60px;
+            }
+
+            @include min {
+              font-size: 40px;
+              line-height: 28px;
+            }
+            &-period {
+              @include med {
+                padding-bottom: 12px;
+              }
+              @include min {
+                padding-bottom: 20px;
+              }
+            }
+          }
+        }
+        &-location {
+          font-size: 15px;
+          line-height: 18px;
+          letter-spacing: 3px;
+
+          @include med {
+            font-size: 18px;
+            letter-spacing: 3.6px;
+          }
+          @include min {
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 4.8px;
+          }
+        }
+      }
+      .expand {
+        border-radius: 28px;
+        width: 125px;
+        height: 50px;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.5);
+        background: #fff;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 4.75px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 5px 15px 15px;
+
+        @include med {
+          width: 146px;
+          height: 56px;
+          font-size: 16px;
+          line-height: 28px;
+          letter-spacing: 5px;
+          padding: 8px 9px 8px 21px;
+        }
+        @include lg {
+          align-self: flex-end;
+          margin-left: auto;
+        }
+        .arrow {
+          width: 32px;
+          height: 32px;
+          transform: rotate(180deg);
+          transition: transform 0.5s, filter 0.2s;
+
+          &:hover {
+            filter: brightness(330%);
+          }
+          @include med {
+            width: 40px;
+            height: 40px;
+          }
+        }
+        .rotate {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}
+.details {
+  background: rgba(255, 255, 255, 0.75);
+  // background: red;
+  position: absolute;
+  backdrop-filter: blur(40.7742px);
+  color: map-get($map: $color, $key: dark-gray);
+  bottom: -256px;
+  // top: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+  padding: 48px 26px 32px;
+  // background-image: url(../assets/tablet/bg-image-daytime.jpg);
+
+  @include med {
+    padding: 119px 64px 119px;
+    bottom: -440px;
+    // top: 0;
+  }
+  @include min {
+    padding: 74px 165px 84px;
+    bottom: -400px;
+  }
+  &-content {
+    max-width: map-get($map: $width, $key: will);
+    @include med {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+        'region week-day'
+        'day week-number';
+      column-gap: 80px;
+      row-gap: 48px;
+    }
+    @include lg {
+      row-gap: 58px;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+
+      @include med {
+        display: unset;
+        padding-bottom: 0;
+      }
+      h4 {
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 28px;
+
+        @include med {
+          font-size: 1.3rem;
+          line-height: 28px;
+          letter-spacing: 2.6px;
+        }
+
+        @include lg {
+          font-size: 1.5rem;
+          line-height: 28px;
+          letter-spacing: 3px;
+        }
+      }
+      p {
+        font-size: 20px;
+        line-height: 24.2px;
+        font-weight: 700;
+
+        @include med {
+          font-size: 40px;
+          padding-top: 20px;
+        }
+        @include min {
+          font-size: 56px;
+          padding-top: 35px;
+        }
+      }
+    }
+    &-region {
+      grid-area: region;
+    }
+    &-day {
+      grid-area: day;
+    }
+    &-weekday {
+      grid-area: week-day;
+    }
+    &-weeknumber {
+      grid-area: week-number;
+    }
+  }
+}
+.transform {
+  transform: translate3d(0, -25.6rem, 0);
+
+  @include med {
+    transform: translate3d(0, -44rem, 0);
+  }
+
+  @include min {
+    transform: translate3d(0, -40rem, 0);
+  }
+}
