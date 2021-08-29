@@ -37,14 +37,6 @@ button {
   button::-moz-focus-inner {
     border: 0; }
 
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg); }
-  50% {
-    transform: rotate(30deg); }
-  100% {
-    transform: rotate(0deg); } }
-
 .loader-container {
   width: 100%;
   height: 100%;
@@ -65,14 +57,19 @@ button {
 
 @-webkit-keyframes flip {
   0% {
+    -webkit-transform: perspective(50px) rotateX(0deg) rotateY(0deg);
     transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
   25% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
     transform: perspective(120px) rotateX(-180deg) rotateY(0deg); }
   50% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
     transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }
   75% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
     transform: perspective(120px) rotateX(0deg) rotateY(-180deg); }
   100% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
     transform: perspective(120px) rotateX(0deg) rotateY(-360deg); } }
 
 @keyframes flip {
@@ -186,8 +183,7 @@ button {
       .main-content #top-widgets .currently .header {
         display: flex; }
         .main-content #top-widgets .currently .header-icon {
-          padding-right: 1.6rem;
-          animation: rotation 6s infinite linear; }
+          padding-right: 1.6rem; }
           @media (min-width: 768px) {
             .main-content #top-widgets .currently .header-icon {
               height: 24px; } }
@@ -296,10 +292,12 @@ button {
         letter-spacing: 4.75px;
         border: none;
         cursor: pointer;
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 15px 5px 15px 15px; }
+        padding: 15px 5px 15px 15px;
+        bottom: -200px; }
         @media (min-width: 768px) {
           .main-content #top-widgets .currently .expand {
             width: 146px;
@@ -310,8 +308,10 @@ button {
             padding: 8px 9px 8px 21px; } }
         @media (min-width: 992px) {
           .main-content #top-widgets .currently .expand {
+            bottom: 0;
             align-self: flex-end;
-            margin-left: auto; } }
+            margin-left: auto;
+            right: 0; } }
         .main-content #top-widgets .currently .expand .arrow {
           width: 32px;
           height: 32px;

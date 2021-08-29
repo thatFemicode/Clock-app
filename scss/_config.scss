@@ -1,5 +1,6 @@
 button {
   border: none;
+  outline: none;
   cursor: pointer;
   &:focus {
     outline: 2px dashed map-get($map: $color, $key: "white");

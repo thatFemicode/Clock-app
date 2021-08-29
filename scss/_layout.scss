@@ -176,7 +176,7 @@
           // height: 40px;
           // background: red;
           padding-right: 1.6rem;
-          animation: rotation 6s infinite linear;
+          // animation: rotation 6s infinite linear;
 
           @include med {
             height: 24px;
@@ -312,10 +312,12 @@
         letter-spacing: 4.75px;
         border: none;
         cursor: pointer;
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 15px 5px 15px 15px;
+        bottom: -200px;
 
         @include med {
           width: 146px;
@@ -326,8 +328,10 @@
           padding: 8px 9px 8px 21px;
         }
         @include lg {
+          bottom: 0;
           align-self: flex-end;
           margin-left: auto;
+          right: 0;
         }
         .arrow {
           width: 32px;
